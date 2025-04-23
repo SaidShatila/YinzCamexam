@@ -18,7 +18,6 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import said.shatila.yinzcamexam.domain.DomainConstants.BASE_URL
 import javax.inject.Singleton
 
 
@@ -37,7 +36,6 @@ object NetworkModule {
 
             install(DefaultRequest) {
                 header(HttpHeaders.ContentType, ContentType.Application.Json)
-                host = BASE_URL
             }
 
             install(HttpTimeout) {
