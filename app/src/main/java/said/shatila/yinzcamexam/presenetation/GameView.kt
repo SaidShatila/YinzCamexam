@@ -89,7 +89,6 @@ fun GameView(game: Game, modifier: Modifier = Modifier) {
             )
         }
 
-
         Box(Modifier.fillMaxWidth()) {
             Text(
                 modifier = Modifier.align(Alignment.TopStart),
