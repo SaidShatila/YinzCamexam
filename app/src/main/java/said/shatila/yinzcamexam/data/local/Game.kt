@@ -1,16 +1,27 @@
 package said.shatila.yinzcamexam.data.local
 
+import androidx.compose.runtime.Immutable
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import said.shatila.yinzcamexam.ui.theme.PrimaryTextColor
+import java.util.UUID
+
+@Immutable
 data class Game(
+    val uniqueId: String = UUID.randomUUID().toString(),
     val id: Long,
     val week: String,
     val label: String,
-    val gameState: String,
-    val tv: String,
-    val radio: String,
-    val gameOutcome: GameResult,
-    val awayScore: String,
-    val homeScore: String,
-    val gameType: GameType,
-    val gameDate: GameDate,
-    val opponentTeam: Team
+    val gameStateDate: String,
+    val tvRadio: String? = null,
+    val isRecord: Boolean = false,
+    val awayRecordScore: String,
+    val homeRecordScore: String,
+    val homeAwayRecordColor: Color = PrimaryTextColor,
+    val homeAwayRecordFontWeight: FontWeight = FontWeight.Normal,
+    val dateText: String,
+    val homeTeamName: String,
+    val homeTeamLogo: String,
+    val opponentTeamName: String,
+    val opponentTeamLogo: String,
 )

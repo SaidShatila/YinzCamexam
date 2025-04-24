@@ -18,7 +18,6 @@ class FetchYinzCamUseCase @Inject constructor(
     @IODispatcher private val ioDispatcher: CoroutineDispatcher
 ) {
 
-
     suspend operator fun invoke(): GenericResponse<ScheduleDTO> {
         val job = CompletableDeferred<GenericResponse<ScheduleDTO>>()
         withContext(ioDispatcher) {

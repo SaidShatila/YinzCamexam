@@ -18,15 +18,14 @@ fun YinzCamMainScreen(
     )
 }
 
-    @Composable
-    private fun YinzCamBodyScreen(
-        modifier: Modifier = Modifier,
+@Composable
+private fun YinzCamBodyScreen(
+    modifier: Modifier = Modifier,
 //        uiState: GameScheduleUIState,
-    ) {
-        LazyColumn(modifier = modifier.fillMaxWidth()) {
-            item {
+) {
+    LazyColumn(modifier = modifier.fillMaxWidth()) {
+        item {
 
-            }
         }
     }
 }

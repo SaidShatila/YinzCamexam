@@ -1,6 +1,11 @@
 package said.shatila.yinzcamexam.data.local
 
+import androidx.compose.runtime.Immutable
+import java.util.UUID
+
+@Immutable
 data class Schedule(
+    val uniqueId: String = UUID.randomUUID().toString(),
     val team: Team,
     val defaultGameId: Long,
     val gameSection: List<GameSection>,
