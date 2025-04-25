@@ -9,6 +9,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import said.shatila.yinzcamexam.domain.IODispatcher
 import said.shatila.yinzcamexam.domain.repository.YinzCamRepository
 import said.shatila.yinzcamexam.domain.usecase.FetchYinzCamUseCase
+import said.shatila.yinzcamexam.domain.usecase.YinzCamDefaultUseCase
 import said.shatila.yinzcamexam.domain.usecase.YinzCamUiBuild
 import said.shatila.yinzcamexam.domain.usecase.YinzCamUseCases
 
@@ -25,7 +26,8 @@ object YinzCamUseCaseModule {
             fetchYinzCamUseCase = FetchYinzCamUseCase(
                 yinzCamRepository, savedStateHandle, ioDispatcher
             ),
-            yinzCamUiBuild = YinzCamUiBuild()
+            yinzCamUiBuild = YinzCamUiBuild(),
+            yinzCamDefaultUseCase = YinzCamDefaultUseCase(),
         )
     }
 }

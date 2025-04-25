@@ -130,7 +130,6 @@ private fun GamePreview() {
             tvRadio = "TV",
             dateText = "Friday, 8, March",
             awayRecordScore = "110",
-            isRecord = true,
             homeAwayRecordColor = PrimaryTextColor,
             homeAwayRecordFontWeight = FontWeight.Bold,
             homeRecordScore = "100",

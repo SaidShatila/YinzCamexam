@@ -14,7 +14,6 @@ data class Game(
     val label: String,
     val gameStateDate: String,
     val tvRadio: String? = null,
-    val isRecord: Boolean = false,
     val awayRecordScore: String,
     val homeRecordScore: String,
     val homeAwayRecordColor: Color = PrimaryTextColor,

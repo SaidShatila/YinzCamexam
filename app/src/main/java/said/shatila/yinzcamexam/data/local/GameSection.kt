@@ -1,11 +1,12 @@
 package said.shatila.yinzcamexam.data.local
 
 import androidx.compose.runtime.Immutable
+import said.shatila.yinzcamexam.model.GameTypeData
 import java.util.UUID
 
 @Immutable
 data class GameSection(
     val uniqueId: String = UUID.randomUUID().toString(),
     val heading: String,
-    val games: List<Game>
+    val games: List<GameTypeData>
 )
