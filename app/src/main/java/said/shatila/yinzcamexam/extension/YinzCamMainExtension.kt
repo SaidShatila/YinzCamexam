@@ -3,6 +3,8 @@ package said.shatila.yinzcamexam.extension
 import androidx.compose.ui.text.font.FontWeight
 import said.shatila.yinzcamexam.data.local.Game
 import said.shatila.yinzcamexam.data.local.GameSection
+import said.shatila.yinzcamexam.data.local.Schedule
+import said.shatila.yinzcamexam.data.local.Team
 import said.shatila.yinzcamexam.data.remote.GameDTO
 import said.shatila.yinzcamexam.data.remote.ScheduleDTO
 import said.shatila.yinzcamexam.data.remote.TeamDTO
@@ -15,7 +17,17 @@ import said.shatila.yinzcamexam.ui.theme.SecondaryTextColor
 import said.shatila.yinzcamexam.utils.DateHelpers
 import java.util.UUID
 
-fun ScheduleDTO.toSectionUIModels(): List<GameSection> {
+fun ScheduleDTO.toSectionUIModels(): Schedule {
+    return Schedule(
+        team = Team(
+            team?.name.orEmpty(), team?.record.orEmpty(), team?.triCode.orEmpty()
+        ),
+        defaultGameId = defaultGameId,
+        gameSection = toGameSectionList()
+    )
+}
+
+fun ScheduleDTO.toGameSectionList(): List<GameSection> {
     val sections = gameSections ?: return emptyList()
     return sections.map { section ->
         GameSection(

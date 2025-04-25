@@ -1,7 +1,9 @@
 package said.shatila.yinzcamexam.data.remote
 
 import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 data class TeamDTO(
     @SerialName("TriCode")
     val triCode: String? = null,

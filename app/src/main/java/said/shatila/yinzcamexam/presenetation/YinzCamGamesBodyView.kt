@@ -26,7 +26,7 @@ import said.shatila.yinzcamexam.ui.theme.BackgroundGray50
 import said.shatila.yinzcamexam.ui.theme.SecondaryTextColor
 
 @Composable
-private fun YinzCamBodyView(
+fun YinzCamBodyView(
     modifier: Modifier = Modifier,
     gameSection: GameSection,
 ) {
@@ -53,8 +53,22 @@ private fun YinzCamBodyView(
         }
         gameSection.games.forEachIndexed { index, game ->
             when (game) {
-                is FinalList -> game.data?.let { GameView(game = it) }
-                is ScheduledList -> game.data?.let { GameView(game = it) }
+                is FinalList -> game.data?.let {
+                    GameView(
+                        game = it, modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp)
+                    )
+                }
+
+                is ScheduledList -> game.data?.let {
+                    GameView(
+                        game = it, modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp)
+                    )
+                }
+
                 is ByeList -> ByeView()
             }
             if (index != gameSection.games.size - 1)

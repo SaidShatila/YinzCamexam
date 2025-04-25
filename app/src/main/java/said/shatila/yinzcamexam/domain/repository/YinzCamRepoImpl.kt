@@ -23,9 +23,9 @@ class YinzCamRepoImpl @Inject constructor(
 
         val builder = HttpRequestBuilder().apply {
             url {
-                protocol = URLProtocol.HTTPS
+                protocol = URLProtocol.HTTP
                 host = BASE_URL
-                encodedPath = "/iOS/interviews/ScheduleExercise/schedule.json"
+                encodedPath = "iOS/interviews/ScheduleExercise/schedule.json"
             }
             method = HttpMethod.Get
         }

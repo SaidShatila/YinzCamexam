@@ -23,7 +23,7 @@ class FetchYinzCamUseCase @Inject constructor(
         withContext(ioDispatcher) {
             val res = yinzCamRepository.fetchYinz()
             if (res is NetworkResponse.Success) {
-                savedStateHandle[YINZ_CAM] = res.data
+//                savedStateHandle[YINZ_CAM] = res.data
                 job.complete(NetworkResponse.Success(data = res.data))
             } else if (res is NetworkResponse.Failure) {
                 job.complete(NetworkResponse.Failure(res.error, res.message))
