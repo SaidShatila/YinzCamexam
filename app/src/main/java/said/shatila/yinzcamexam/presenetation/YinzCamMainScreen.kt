@@ -49,7 +49,6 @@ private fun YinzCamScheduleContentView(
                 is YinzCamUiState.Loading -> {
                     repeat(5) {
                         GameViewSkeleton()
-                        HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
                     }
                 }
 
