@@ -70,7 +70,7 @@ fun YinzCamBodyView(
 
 @Preview(showBackground = true)
 @Composable
-fun YinzCamBodyPreview() {
+private fun YinzCamBodyPreview() {
     val finalGame = Game(
         id = 1L,
         week = "Week 1",
