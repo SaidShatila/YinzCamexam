@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.MaterialTheme
@@ -14,10 +13,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import coil3.request.CachePolicy
+import coil3.request.ImageRequest
+import coil3.request.crossfade
 import said.shatila.yinzcamexam.data.local.Game
 import said.shatila.yinzcamexam.ui.theme.BackgroundColor
 import said.shatila.yinzcamexam.ui.theme.PrimaryTextColor
@@ -26,6 +29,17 @@ import said.shatila.yinzcamexam.ui.theme.SecondaryTextColor
 
 @Composable
 fun GameView(game: Game, modifier: Modifier = Modifier) {
+
+    val textStyle = if (game.isRecord) {
+        MaterialTheme.typography.bodySmall.copy(
+            fontWeight = game.homeAwayRecordFontWeight
+        )
+    } else {
+        MaterialTheme.typography.titleMedium.copy(
+            fontWeight = game.homeAwayRecordFontWeight
+        )
+    }
+
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -46,16 +60,13 @@ fun GameView(game: Game, modifier: Modifier = Modifier) {
         }
 
         Row(
-            Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Text(
-                modifier = Modifier.size(32.dp),
                 text = game.homeRecordScore,
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = game.homeAwayRecordFontWeight
-                ),
+                style = textStyle,
                 color = game.homeAwayRecordColor
             )
             Row(
@@ -64,27 +75,38 @@ fun GameView(game: Game, modifier: Modifier = Modifier) {
                 horizontalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 AsyncImage(
-                    model = game.homeTeamName,
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(game.opponentTeamLogo)
+                        .memoryCacheKey(game.homeTeamName)
+                        .memoryCachePolicy(CachePolicy.ENABLED)
+                        .diskCacheKey(game.homeTeamName)
+                        .diskCachePolicy(CachePolicy.ENABLED)
+                        .crossfade(true)
+                        .build(),
                     contentDescription = game.homeTeamName,
                     modifier = Modifier.size(40.dp)
                 )
                 Text(
-                    text = game.label,
+                    text = "@",
                     style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold),
                     color = SecondaryTextColor
                 )
                 AsyncImage(
-                    model = game.opponentTeamLogo,
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(game.opponentTeamLogo)
+                        .memoryCacheKey(game.opponentTeamName)
+                        .memoryCachePolicy(CachePolicy.ENABLED)
+                        .diskCacheKey(game.opponentTeamName)
+                        .diskCachePolicy(CachePolicy.ENABLED)
+                        .crossfade(true)
+                        .build(),
                     contentDescription = game.opponentTeamName,
                     modifier = Modifier.size(40.dp)
                 )
             }
             Text(
-                modifier = Modifier.size(32.dp),
                 text = game.awayRecordScore,
-                style = MaterialTheme.typography.titleMedium.copy(
-                    fontWeight = game.homeAwayRecordFontWeight
-                ),
+                style = textStyle,
                 color = game.homeAwayRecordColor
             )
         }
@@ -110,9 +132,10 @@ fun GameView(game: Game, modifier: Modifier = Modifier) {
             )
         }
 
-        game.tvRadio?.let {
+        game.tvRadio?.takeIf {
+            it.isNotEmpty()
+        }?.also {
             Text(text = it, style = MaterialTheme.typography.bodySmall, color = PrimaryTextColor)
-
         }
     }
 }

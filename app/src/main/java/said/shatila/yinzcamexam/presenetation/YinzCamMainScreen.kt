@@ -16,8 +16,7 @@ import said.shatila.yinzcamexam.data.local.GameSection
 import said.shatila.yinzcamexam.data.local.Schedule
 import said.shatila.yinzcamexam.data.local.Team
 import said.shatila.yinzcamexam.model.ByeList
-import said.shatila.yinzcamexam.model.FinalList
-import said.shatila.yinzcamexam.model.ScheduledList
+import said.shatila.yinzcamexam.model.GamesList
 import said.shatila.yinzcamexam.model.YinzCamUiState
 
 @Composable
@@ -122,8 +121,8 @@ private fun YinzCamScheduleContentPreview() {
                         uniqueId = "section1",
                         heading = "Regular Season",
                         games = listOf(
-                            FinalList(finalGame.uniqueId, finalGame),
-                            ScheduledList(scheduledGame.uniqueId, scheduledGame),
+                            GamesList(finalGame.uniqueId, finalGame),
+                            GamesList(scheduledGame.uniqueId, scheduledGame),
                             ByeList(byeGame.uniqueId, byeGame)
                         )
                     )
@@ -131,8 +130,8 @@ private fun YinzCamScheduleContentPreview() {
                         uniqueId = "section12",
                         heading = "Regular Season 2",
                         games = listOf(
-                            FinalList(finalGame.uniqueId, finalGame),
-                            ScheduledList(scheduledGame.uniqueId, scheduledGame),
+                            GamesList(finalGame.uniqueId, finalGame),
+                            GamesList(scheduledGame.uniqueId, scheduledGame),
                             ByeList(byeGame.uniqueId, byeGame)
                         )
                     )

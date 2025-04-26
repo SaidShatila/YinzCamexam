@@ -1,6 +1,7 @@
 package said.shatila.yinzcamexam.extension
 
 import androidx.compose.ui.text.font.FontWeight
+import said.shatila.yinzcamexam.R
 import said.shatila.yinzcamexam.data.local.Game
 import said.shatila.yinzcamexam.data.local.GameSection
 import said.shatila.yinzcamexam.data.local.Schedule
@@ -9,9 +10,8 @@ import said.shatila.yinzcamexam.data.remote.GameDTO
 import said.shatila.yinzcamexam.data.remote.ScheduleDTO
 import said.shatila.yinzcamexam.data.remote.TeamDTO
 import said.shatila.yinzcamexam.model.ByeList
-import said.shatila.yinzcamexam.model.FinalList
 import said.shatila.yinzcamexam.model.GameResult
-import said.shatila.yinzcamexam.model.ScheduledList
+import said.shatila.yinzcamexam.model.GamesList
 import said.shatila.yinzcamexam.ui.theme.PrimaryTextColor
 import said.shatila.yinzcamexam.ui.theme.SecondaryTextColor
 import said.shatila.yinzcamexam.utils.DateHelpers
@@ -36,26 +36,26 @@ fun ScheduleDTO.toGameSectionList(): List<GameSection> {
                 val game = team?.let { dto.toGame(it, dto.type.equals(GameResult.FINAL.name)) }
 
                 when (dto.type) {
-                    GameResult.FINAL.name ->
-                        FinalList(
+                    GameResult.FINAL.gameType->
+                        GamesList(
                             idType = game?.uniqueId ?: UUID.randomUUID(),
                             data = game
                         )
 
-                    GameResult.BYE.name ->
+                    GameResult.BYE.gameType ->
                         ByeList(
                             idType = game?.uniqueId ?: UUID.randomUUID(),
                             data = null
                         )
 
-                    GameResult.SCHEDULED.name ->
-                        ScheduledList(
+                    GameResult.SCHEDULED.gameType ->
+                        GamesList(
                             idType = game?.uniqueId ?: UUID.randomUUID(),
                             data = game
                         )
 
                     else ->
-                        ScheduledList(
+                        GamesList(
                             idType = game?.uniqueId ?: UUID.randomUUID(),
                             data = game
                         )
@@ -75,18 +75,22 @@ fun GameDTO.toGame(homeTeam: TeamDTO, isFinal: Boolean): Game {
             outputPattern = "hh:mm a"
         ),
         tvRadio = (tv?.takeIf { it.isNotEmpty() } ?: radio.orEmpty()),
+        isRecord = !isFinal,
         awayRecordScore = if (isFinal) awayScore.orEmpty() else opponent?.record.orEmpty(),
         homeRecordScore = if (isFinal) homeScore.orEmpty() else homeTeam.record.orEmpty(),
         homeAwayRecordColor = if (isFinal) PrimaryTextColor else SecondaryTextColor,
         homeAwayRecordFontWeight = if (isFinal) FontWeight.Bold else FontWeight.Normal,
         dateText = DateHelpers.formatDateTime(date?.text.orEmpty(), outputPattern = "EEE, MMM dd"),
         homeTeamName = homeTeam.fullName.orEmpty(),
-        homeTeamLogo = triCodeToLogoUrl(homeTeam.triCode.orEmpty()),
+        homeTeamLogo = triCodeToLogoUrl(homeTeam.triCode)
+            ?: R.drawable.baseline_sports_football_24,
         opponentTeamName = opponent?.name.orEmpty(),
-        opponentTeamLogo = triCodeToLogoUrl(opponent?.triCode.orEmpty())
+        opponentTeamLogo = triCodeToLogoUrl(opponent?.triCode)
+            ?: R.drawable.baseline_sports_football_24
     )
 }
 
-private fun triCodeToLogoUrl(tri: String): String {
-    return "https://static.nfl.com/team-logos/$tri.png"
+private fun triCodeToLogoUrl(tri: String?): String? {
+    tri?.let { return "https://yc-app-resources.s3.amazonaws.com/nfl/logos/nfl_${tri.lowercase()}_light.png" }
+        ?: run { return null }
 }

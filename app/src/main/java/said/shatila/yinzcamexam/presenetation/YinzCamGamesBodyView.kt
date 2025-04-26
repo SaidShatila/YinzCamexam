@@ -19,8 +19,7 @@ import androidx.compose.ui.unit.dp
 import said.shatila.yinzcamexam.data.local.Game
 import said.shatila.yinzcamexam.data.local.GameSection
 import said.shatila.yinzcamexam.model.ByeList
-import said.shatila.yinzcamexam.model.FinalList
-import said.shatila.yinzcamexam.model.ScheduledList
+import said.shatila.yinzcamexam.model.GamesList
 import said.shatila.yinzcamexam.ui.theme.BackgroundColor
 import said.shatila.yinzcamexam.ui.theme.BackgroundGray50
 import said.shatila.yinzcamexam.ui.theme.SecondaryTextColor
@@ -53,15 +52,7 @@ fun YinzCamBodyView(
         }
         gameSection.games.forEachIndexed { index, game ->
             when (game) {
-                is FinalList -> game.data?.let {
-                    GameView(
-                        game = it, modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(16.dp)
-                    )
-                }
-
-                is ScheduledList -> game.data?.let {
+                is GamesList -> game.data?.let {
                     GameView(
                         game = it, modifier = Modifier
                             .fillMaxWidth()
@@ -127,8 +118,8 @@ fun YinzCamBodyPreview() {
             uniqueId = "section1",
             heading = "Regular Season",
             games = listOf(
-                FinalList(finalGame.uniqueId, finalGame),
-                ScheduledList(scheduledGame.uniqueId, scheduledGame),
+                GamesList(finalGame.uniqueId, finalGame),
+                GamesList(scheduledGame.uniqueId, scheduledGame),
                 ByeList(byeGame.uniqueId, byeGame)
             )
         )

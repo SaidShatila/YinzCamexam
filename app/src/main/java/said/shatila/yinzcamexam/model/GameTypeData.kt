@@ -5,16 +5,14 @@ import said.shatila.yinzcamexam.data.local.Game
 sealed class GameTypeData(val id: Any, val type: GameResult)
 
 enum class GameResult(val gameType: String) {
+    GAME("G"),
     FINAL("F"),
     SCHEDULED("S"),
     BYE("B")
 }
 
-data class FinalList(
+data class GamesList(
     val idType: Any, val data: Game?
-) : GameTypeData(idType, GameResult.FINAL)
+) : GameTypeData(idType, GameResult.GAME)
 
 data class ByeList(val idType: Any, val data: Game?) : GameTypeData(idType, GameResult.BYE)
-
-data class ScheduledList(val idType: Any, val data: Game?) :
-    GameTypeData(idType, GameResult.SCHEDULED)
