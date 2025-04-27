@@ -1,10 +1,12 @@
-package said.shatila.yinzcamexam.presenetation
+package said.shatila.yinzcamexam.presentation
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.HorizontalDivider
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -19,6 +21,7 @@ import said.shatila.yinzcamexam.data.local.Team
 import said.shatila.yinzcamexam.model.ByeList
 import said.shatila.yinzcamexam.model.GamesList
 import said.shatila.yinzcamexam.model.YinzCamUiState
+import said.shatila.yinzcamexam.ui.theme.BackgroundColor
 
 @Composable
 fun YinzCamMainScreen(
@@ -28,7 +31,7 @@ fun YinzCamMainScreen(
     val uiState = viewModel.yinzCamUIState.collectAsStateWithLifecycle().value
 
     YinzCamScheduleContentView(
-        modifier = modifier,
+        modifier = modifier.fillMaxWidth(),
         uiState = uiState
     )
 }
@@ -39,26 +42,44 @@ private fun YinzCamScheduleContentView(
     modifier: Modifier = Modifier,
     uiState: YinzCamUiState,
 ) {
-    LazyColumn(modifier = modifier.fillMaxWidth()) {
-        item {
-            when (uiState) {
-                is YinzCamUiState.Error -> {
-                    //Error
-                }
-
-                is YinzCamUiState.Loading -> {
-                    repeat(5) {
-                        GameViewSkeleton()
-                    }
-                }
-
-                is YinzCamUiState.Success -> {
-                    uiState.data.gameSection?.forEach { gameSection ->
-                        YinzCamBodyView(gameSection = gameSection)
-                    }
+    LazyColumn(modifier = modifier) {
+        when (uiState) {
+            is YinzCamUiState.Error -> {
+                item {
+                    ErrorView(
+                        modifier = Modifier.padding(vertical = 16.dp, horizontal = 16.dp)
+                    )
                 }
             }
-            Spacer(modifier = Modifier.padding(48.dp))
+
+            is YinzCamUiState.Loading -> {
+                items(count = 5, key = { "skeleton_$it" }) {
+                    GameViewSkeleton(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(BackgroundColor)
+                            .padding(16.dp)
+                    )
+                }
+            }
+
+            is YinzCamUiState.Success -> {
+                val sections = uiState.data.gameSection.orEmpty()
+                items(
+                    items = sections,
+                    key = { section -> section.uniqueId },
+                ) { section ->
+                    YinzCamBodyView(
+                        gameSection = section,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(BackgroundColor)
+                    )
+                }
+            }
+        }
+        item {
+            Spacer(modifier = Modifier.height(48.dp))
         }
     }
 }

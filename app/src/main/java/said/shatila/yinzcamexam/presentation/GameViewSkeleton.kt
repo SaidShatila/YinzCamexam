@@ -1,6 +1,5 @@
-package said.shatila.yinzcamexam.presenetation
+package said.shatila.yinzcamexam.presentation
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -16,17 +15,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import said.shatila.yinzcamexam.ui.theme.BackgroundColor
 import said.shatila.yinzcamexam.utils.shimmer
 
 
 @Composable
 fun GameViewSkeleton(modifier: Modifier = Modifier) {
     Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .background(BackgroundColor)
-            .padding(vertical = 16.dp, horizontal = 16.dp),
+        modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(16.dp, Alignment.CenterVertically)
     ) {
         Row(

@@ -19,7 +19,7 @@ import said.shatila.yinzcamexam.data.local.YINZ_CAM
 import said.shatila.yinzcamexam.data.remote.ScheduleDTO
 import said.shatila.yinzcamexam.domain.MainDispatcher
 import said.shatila.yinzcamexam.domain.usecase.YinzCamUseCases
-import said.shatila.yinzcamexam.extension.toSectionUIModels
+import said.shatila.yinzcamexam.data.extension.toSectionUIModels
 import said.shatila.yinzcamexam.model.YinzCamUiState
 import said.shatila.yinzcamexam.network.NetworkResponse
 import javax.inject.Inject

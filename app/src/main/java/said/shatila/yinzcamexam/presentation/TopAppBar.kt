@@ -1,4 +1,4 @@
-package said.shatila.yinzcamexam.presenetation
+package said.shatila.yinzcamexam.presentation
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -9,7 +9,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarDefaults.topAppBarColors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -21,9 +21,10 @@ import said.shatila.yinzcamexam.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopAppBarView() {
+fun TopAppBarView(modifier: Modifier = Modifier) {
     TopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(
+        modifier = modifier,
+        colors = topAppBarColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer,
             navigationIconContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
             titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer,
@@ -35,7 +36,8 @@ fun TopAppBarView() {
                     contentDescription = "Menu",
                     modifier = Modifier
                         .padding(start = 16.dp, end = 16.dp)
-                        .clickable { })
+                        .clickable { }
+                )
             }
         }, title = {
             Text(

@@ -1,4 +1,4 @@
-package said.shatila.yinzcamexam.presenetation
+package said.shatila.yinzcamexam.presentation
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -32,8 +32,6 @@ fun YinzCamBodyView(
 
     Column(
         modifier = modifier
-            .fillMaxWidth()
-            .background(BackgroundColor)
     ) {
         Box(
             modifier = Modifier
@@ -56,13 +54,16 @@ fun YinzCamBodyView(
                     GameView(
                         game = it, modifier = Modifier
                             .fillMaxWidth()
+                            .background(BackgroundColor)
                             .padding(16.dp)
                     )
                 }
 
-                is ByeList -> ByeView()
+                is ByeList -> ByeView(
+                    modifier = Modifier.fillMaxWidth()
+                )
             }
-            if (index != gameSection.games.size - 1)
+            if (index != gameSection.games.lastIndex)
                 HorizontalDivider(modifier = Modifier.padding(horizontal = 16.dp))
         }
     }

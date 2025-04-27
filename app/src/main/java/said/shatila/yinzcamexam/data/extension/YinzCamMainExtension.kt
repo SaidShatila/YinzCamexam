@@ -1,4 +1,4 @@
-package said.shatila.yinzcamexam.extension
+package said.shatila.yinzcamexam.data.extension
 
 import androidx.compose.ui.text.font.FontWeight
 import said.shatila.yinzcamexam.R

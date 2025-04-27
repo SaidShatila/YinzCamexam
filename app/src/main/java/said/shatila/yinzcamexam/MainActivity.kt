@@ -10,8 +10,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import dagger.hilt.android.AndroidEntryPoint
-import said.shatila.yinzcamexam.presenetation.TopAppBarView
-import said.shatila.yinzcamexam.presenetation.YinzCamMainScreen
+import said.shatila.yinzcamexam.presentation.TopAppBarView
+import said.shatila.yinzcamexam.presentation.YinzCamMainScreen
 import said.shatila.yinzcamexam.ui.theme.BackgroundColor
 import said.shatila.yinzcamexam.ui.theme.YinzCamexamTheme
 
