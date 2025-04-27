@@ -16,8 +16,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import said.shatila.yinzcamexam.data.local.Game
-import said.shatila.yinzcamexam.data.local.GameSection
+import said.shatila.yinzcamexam.model.local.Game
+import said.shatila.yinzcamexam.model.local.GameSection
 import said.shatila.yinzcamexam.model.ByeList
 import said.shatila.yinzcamexam.model.GamesList
 import said.shatila.yinzcamexam.ui.theme.BackgroundColor

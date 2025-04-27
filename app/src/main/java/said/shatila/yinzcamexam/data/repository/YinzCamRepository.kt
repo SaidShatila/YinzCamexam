@@ -1,6 +1,6 @@
-package said.shatila.yinzcamexam.domain.repository
+package said.shatila.yinzcamexam.data.repository
 
-import said.shatila.yinzcamexam.data.remote.ScheduleDTO
+import said.shatila.yinzcamexam.model.remote.ScheduleDTO
 import said.shatila.yinzcamexam.network.GenericResponse
 
 interface YinzCamRepository {

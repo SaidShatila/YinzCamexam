@@ -1,6 +1,6 @@
 package said.shatila.yinzcamexam.model
 
-import said.shatila.yinzcamexam.data.local.Schedule
+import said.shatila.yinzcamexam.model.local.Schedule
 
 sealed interface YinzCamUiState {
     val data: Schedule

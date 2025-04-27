@@ -5,9 +5,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
 import kotlinx.coroutines.CoroutineDispatcher
-import said.shatila.yinzcamexam.domain.IODispatcher
-import said.shatila.yinzcamexam.domain.MainDispatcher
-import said.shatila.yinzcamexam.domain.repository.YinzCamRepository
+import said.shatila.yinzcamexam.utils.IODispatcher
+import said.shatila.yinzcamexam.utils.MainDispatcher
+import said.shatila.yinzcamexam.data.repository.YinzCamRepository
 import said.shatila.yinzcamexam.domain.usecase.FetchYinzCamUseCase
 import said.shatila.yinzcamexam.domain.usecase.YinzCamUiBuild
 import said.shatila.yinzcamexam.domain.usecase.YinzCamUseCases

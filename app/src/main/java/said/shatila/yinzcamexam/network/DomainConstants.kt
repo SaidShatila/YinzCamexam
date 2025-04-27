@@ -1,4 +1,4 @@
-package said.shatila.yinzcamexam.domain
+package said.shatila.yinzcamexam.network
 
 object DomainConstants {
 

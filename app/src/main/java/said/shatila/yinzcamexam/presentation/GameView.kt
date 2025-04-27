@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
-import said.shatila.yinzcamexam.data.local.Game
+import said.shatila.yinzcamexam.model.local.Game
 import said.shatila.yinzcamexam.ui.theme.PrimaryTextColor
 import said.shatila.yinzcamexam.ui.theme.SecondaryTextColor
 

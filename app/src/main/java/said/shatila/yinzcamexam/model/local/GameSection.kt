@@ -1,4 +1,4 @@
-package said.shatila.yinzcamexam.data.local
+package said.shatila.yinzcamexam.model.local
 
 import androidx.compose.runtime.Immutable
 import said.shatila.yinzcamexam.model.GameTypeData

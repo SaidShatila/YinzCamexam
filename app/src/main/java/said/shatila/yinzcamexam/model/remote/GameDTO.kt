@@ -1,4 +1,4 @@
-package said.shatila.yinzcamexam.data.remote
+package said.shatila.yinzcamexam.model.remote
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

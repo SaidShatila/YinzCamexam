@@ -6,9 +6,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import said.shatila.yinzcamexam.domain.DefaultDispatcher
-import said.shatila.yinzcamexam.domain.IODispatcher
-import said.shatila.yinzcamexam.domain.MainDispatcher
+import said.shatila.yinzcamexam.utils.DefaultDispatcher
+import said.shatila.yinzcamexam.utils.IODispatcher
+import said.shatila.yinzcamexam.utils.MainDispatcher
 
 
 @Module

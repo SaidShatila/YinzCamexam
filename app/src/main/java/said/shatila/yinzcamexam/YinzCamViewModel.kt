@@ -14,10 +14,10 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.json.Json
-import said.shatila.yinzcamexam.data.local.Schedule
-import said.shatila.yinzcamexam.data.local.YINZ_CAM
-import said.shatila.yinzcamexam.data.remote.ScheduleDTO
-import said.shatila.yinzcamexam.domain.MainDispatcher
+import said.shatila.yinzcamexam.model.local.Schedule
+import said.shatila.yinzcamexam.model.local.YINZ_CAM
+import said.shatila.yinzcamexam.model.remote.ScheduleDTO
+import said.shatila.yinzcamexam.utils.MainDispatcher
 import said.shatila.yinzcamexam.domain.usecase.YinzCamUseCases
 import said.shatila.yinzcamexam.data.extension.toSectionUIModels
 import said.shatila.yinzcamexam.model.YinzCamUiState

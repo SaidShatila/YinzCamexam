@@ -14,10 +14,10 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import said.shatila.yinzcamexam.YinzCamViewModel
-import said.shatila.yinzcamexam.data.local.Game
-import said.shatila.yinzcamexam.data.local.GameSection
-import said.shatila.yinzcamexam.data.local.Schedule
-import said.shatila.yinzcamexam.data.local.Team
+import said.shatila.yinzcamexam.model.local.Game
+import said.shatila.yinzcamexam.model.local.GameSection
+import said.shatila.yinzcamexam.model.local.Schedule
+import said.shatila.yinzcamexam.model.local.Team
 import said.shatila.yinzcamexam.model.ByeList
 import said.shatila.yinzcamexam.model.GamesList
 import said.shatila.yinzcamexam.model.YinzCamUiState

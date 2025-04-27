@@ -1,4 +1,4 @@
-package said.shatila.yinzcamexam.data.local
+package said.shatila.yinzcamexam.model.local
 
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color

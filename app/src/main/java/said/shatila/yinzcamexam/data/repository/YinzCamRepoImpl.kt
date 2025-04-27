@@ -1,4 +1,4 @@
-package said.shatila.yinzcamexam.domain.repository
+package said.shatila.yinzcamexam.data.repository
 
 import io.ktor.client.HttpClient
 import io.ktor.client.request.HttpRequestBuilder
@@ -8,9 +8,9 @@ import io.ktor.http.URLProtocol
 import io.ktor.http.encodedPath
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
-import said.shatila.yinzcamexam.data.remote.ScheduleDTO
-import said.shatila.yinzcamexam.domain.DomainConstants.BASE_URL
-import said.shatila.yinzcamexam.domain.IODispatcher
+import said.shatila.yinzcamexam.model.remote.ScheduleDTO
+import said.shatila.yinzcamexam.network.DomainConstants.BASE_URL
+import said.shatila.yinzcamexam.utils.IODispatcher
 import said.shatila.yinzcamexam.network.GenericResponse
 import said.shatila.yinzcamexam.network.networkResponseOf
 import javax.inject.Inject

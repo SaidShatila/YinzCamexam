@@ -1,6 +1,6 @@
 package said.shatila.yinzcamexam.model
 
-import said.shatila.yinzcamexam.data.local.Game
+import said.shatila.yinzcamexam.model.local.Game
 
 sealed class GameTypeData(val id: Any, val type: GameResult)
 

@@ -1,7 +1,7 @@
 package said.shatila.yinzcamexam.domain.usecase
 
-import said.shatila.yinzcamexam.data.local.Schedule
-import said.shatila.yinzcamexam.data.remote.ScheduleDTO
+import said.shatila.yinzcamexam.model.local.Schedule
+import said.shatila.yinzcamexam.model.remote.ScheduleDTO
 
 
 fun interface YinzCamUiBuild {

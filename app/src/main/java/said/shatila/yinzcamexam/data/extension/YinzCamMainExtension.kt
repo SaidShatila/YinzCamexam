@@ -2,13 +2,13 @@ package said.shatila.yinzcamexam.data.extension
 
 import androidx.compose.ui.text.font.FontWeight
 import said.shatila.yinzcamexam.R
-import said.shatila.yinzcamexam.data.local.Game
-import said.shatila.yinzcamexam.data.local.GameSection
-import said.shatila.yinzcamexam.data.local.Schedule
-import said.shatila.yinzcamexam.data.local.Team
-import said.shatila.yinzcamexam.data.remote.GameDTO
-import said.shatila.yinzcamexam.data.remote.ScheduleDTO
-import said.shatila.yinzcamexam.data.remote.TeamDTO
+import said.shatila.yinzcamexam.model.local.Game
+import said.shatila.yinzcamexam.model.local.GameSection
+import said.shatila.yinzcamexam.model.local.Schedule
+import said.shatila.yinzcamexam.model.local.Team
+import said.shatila.yinzcamexam.model.remote.GameDTO
+import said.shatila.yinzcamexam.model.remote.ScheduleDTO
+import said.shatila.yinzcamexam.model.remote.TeamDTO
 import said.shatila.yinzcamexam.model.ByeList
 import said.shatila.yinzcamexam.model.GameResult
 import said.shatila.yinzcamexam.model.GamesList
