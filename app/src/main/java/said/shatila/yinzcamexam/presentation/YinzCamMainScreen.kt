@@ -30,7 +30,7 @@ fun YinzCamMainScreen(
 ) {
     val uiState = viewModel.yinzCamUIState.collectAsStateWithLifecycle().value
 
-    YinzCamScheduleContentView(
+    YinzCamContentView(
         modifier = modifier.fillMaxWidth(),
         uiState = uiState
     )
@@ -38,7 +38,7 @@ fun YinzCamMainScreen(
 
 
 @Composable
-private fun YinzCamScheduleContentView(
+private fun YinzCamContentView(
     modifier: Modifier = Modifier,
     uiState: YinzCamUiState,
 ) {
@@ -129,7 +129,7 @@ private fun YinzCamScheduleContentPreview() {
         opponentTeamName = "",
         opponentTeamLogo = ""
     )
-    YinzCamScheduleContentView(
+    YinzCamContentView(
         modifier = Modifier,
         YinzCamUiState.Success(
             data = Schedule(
